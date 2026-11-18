@@ -1,0 +1,337 @@
+/* EXTRA STYLES for the Programs & Reports page.
+   Use this together with "Member managementr style.css"
+   (load the Member Management file first, this one second). */
+
+/* Yellow word in the banner title */
+.banner-copy h1 span {
+  color: var(--yellow);
+}
+
+/* ===== Stat cards (top row) ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--yellow);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.stat-text strong {
+  display: block;
+  font-family: "League Spartan", sans-serif;
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.stat-text span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ===== Chart panels ===== */
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 12px;
+}
+
+.chart-panel {
+  padding: 14px 16px;
+}
+
+.chart-panel h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 14px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-legend .dot {
+  margin-top: 0;
+}
+
+.overview-body {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* ===== Donut charts ===== */
+.donut {
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Programs: 33% blue, 33% yellow, 34% navy */
+.programs-donut {
+  background: conic-gradient(
+    var(--bright) 0% 33%,
+    var(--yellow) 33% 66%,
+    var(--navy) 66% 100%
+  );
+}
+
+/* Engagement: 78% blue, 14% yellow, 8% navy (smaller donut) */
+.engagement-donut {
+  width: 96px;
+  height: 96px;
+  background: conic-gradient(
+    var(--bright) 0% 78%,
+    var(--yellow) 78% 92%,
+    var(--navy) 92% 100%
+  );
+}
+
+.donut-hole {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.engagement-donut .donut-hole {
+  width: 60px;
+  height: 60px;
+}
+
+.donut-hole strong {
+  font-family: "League Spartan", sans-serif;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.engagement-donut .donut-hole strong {
+  font-size: 18px;
+}
+
+.donut-hole span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legend li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.dot {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.dot.blue      { background: var(--bright); }
+.dot.yellow-bg { background: var(--yellow); }
+.dot.navy      { background: var(--navy); }
+
+.line-chart {
+  width: 100%;
+  height: auto;
+  margin-top: 6px;
+}
+
+/* ===== Table tweaks ===== */
+.group-panel {
+  min-height: 0;
+}
+
+/* only 3 things in the search row */
+.table-tools.program-tools {
+  grid-template-columns: minmax(180px, 1fr) 160px 140px;
+}
+
+.status.ongoing {
+  background: #dce9fb;
+  color: #0866c3;
+}
+
+/* ===== Reports & Analytics row ===== */
+.analytics-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 12px;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.mini-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #ffffff;
+  text-align: center;
+  padding: 10px 4px;
+  box-shadow: 0 2px 6px rgba(0, 61, 125, 0.08);
+}
+
+.mini-icon {
+  font-size: 20px;
+}
+
+.mini-card strong {
+  display: block;
+  font-family: "League Spartan", sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.mini-card span {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* ===== Recent Reports + Export row ===== */
+.export-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 12px;
+}
+
+.export-row .table-scroll {
+  margin-top: 10px;
+}
+
+.download-btn {
+  border: 0;
+  border-radius: 6px;
+  background: #e2f0ff;
+  color: #0866c3;
+  padding: 5px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.export-text {
+  font-size: 11px;
+  margin: 8px 0 0;
+  color: #23476d;
+}
+
+.export-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.export-btn {
+  border: 0;
+  border-radius: 8px;
+  background: var(--yellow);
+  color: #092d58;
+  padding: 9px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.export-btn:hover {
+  background: #f1b900;
+}
+
+/* ===== Small screens ===== */
+@media (max-width: 1050px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charts,
+  .analytics-row,
+  .export-row {
+    grid-template-columns: 1fr;
+  }
+
+  .table-tools.program-tools {
+    grid-template-columns: minmax(150px, 1fr) 130px 100px;
+  }
+}
+
+@media (max-width: 700px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mini-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .table-tools.program-tools {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .table-tools.program-tools .search-box {
+    grid-column: 1 / -1;
+  }
+}

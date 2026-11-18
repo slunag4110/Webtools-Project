@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youth on the Rock | Support Group Tracking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- 1. Your Member Management theme (keep this first) -->
+  <link rel="stylesheet" href="Member managementr style.css">
+  <!-- 2. Extra styles only for this page (stat cards, charts) -->
+  <link rel="stylesheet" href="support group style (1).css">
+</head>
+<body>
+<div class="dashboard-shell">
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="topbar">
+    <a class="brand" href="#dashboard" aria-label="Youth on the Rock home">
+      <img src="IMAGES/Youth_on_the_Rock-removebg.png" alt="Youth on the Rock">
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="Homepage ytr.html">Home</a><a href="#groups">About</a><a href="#groups">Programs</a><a href="#footer">Contact</a>
+    </nav>
+    <button class="admin-pill" type="button">♟ <span>Admin</span>⌄</button>
+  </header>
+
+  <!-- ===== BANNER ===== -->
+  <section class="page-banner" id="dashboard">
+    <div class="banner-shade"></div>
+    <div class="banner-copy">
+      <h1>Support Group <span>Tracking</span></h1>
+      <p>Monitor, manage, and grow our support groups across the nation.</p>
+    </div>
+  </section>
+
+  <div class="workspace">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <div class="admin-profile">
+        <div class="profile-avatar">●</div>
+        <strong>Admin Account</strong>
+        <small>admin@yotr.org</small>
+      </div>
+      <nav class="side-nav" aria-label="Dashboard navigation">
+        <a href="Member management.html"><span>▦</span> Members</a>
+        <a href="#groups"><span>▣</span> Events</a>
+        <a class="selected" href="support-group-tracking (1).html"><span>♟</span> Support Groups</a>
+        <a href="Mentorship tracking.html"><span>♟</span> Mentorship</a>
+        <a href="programs-reports.html"><span>▥</span> Reports</a>
+        <a href="#footer"><span>⚙</span> Settings</a>
+        <a href="#footer"><span>⇥</span> Log Out</a>
+      </nav>
+      <p class="sidebar-quote">“Empowering the youth<br>to become leaders of impact.”</p>
+      <div class="yellow-swoosh"></div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+      <!-- Stat cards -->
+      <section class="stats">
+        <div class="panel stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-text"><strong>12</strong><span>Total Groups</span></div>
+        </div>
+        <div class="panel stat-card">
+          <div class="stat-icon">👥</div>
+          <div class="stat-text"><strong>1,250</strong><span>Total Members</span></div>
+        </div>
+        <div class="panel stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-text"><strong>18</strong><span>Active Events</span></div>
+        </div>
+        <div class="panel stat-card">
+          <div class="stat-icon">📈</div>
+          <div class="stat-text"><strong>92%</strong><span>Engagement Rate</span></div>
+        </div>
+      </section>
+
+      <!-- Charts -->
+      <section class="charts">
+
+        <div class="panel chart-panel">
+          <h3>📊 Group Overview</h3>
+          <div class="overview-body">
+            <div class="donut">
+              <div class="donut-hole">
+                <strong>12</strong>
+                <span>Groups</span>
+              </div>
+            </div>
+            <ul class="legend">
+              <li><span class="dot blue"></span><div>Active Groups<br>(7) – 58%</div></li>
+              <li><span class="dot yellow-bg"></span><div>Upcoming Groups<br>(3) – 25%</div></li>
+              <li><span class="dot navy"></span><div>Inactive Groups<br>(2) – 17%</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel chart-panel">
+          <h3>📅 Monthly Engagement</h3>
+          <svg class="line-chart" viewBox="0 0 520 210">
+            <!-- grid lines -->
+            <g stroke="#e2eaf5" stroke-width="1">
+              <line x1="40" y1="10" x2="510" y2="10"/>
+              <line x1="40" y1="52.5" x2="510" y2="52.5"/>
+              <line x1="40" y1="95" x2="510" y2="95"/>
+              <line x1="40" y1="137.5" x2="510" y2="137.5"/>
+              <line x1="40" y1="180" x2="510" y2="180"/>
+            </g>
+            <!-- numbers on the left -->
+            <g font-size="10" fill="#08264d" text-anchor="end">
+              <text x="34" y="13">1,000</text>
+              <text x="34" y="56">750</text>
+              <text x="34" y="98">500</text>
+              <text x="34" y="141">250</text>
+              <text x="34" y="184">0</text>
+            </g>
+            <!-- yellow area under the line -->
+            <polygon points="50,180 50,120.5 90,91.6 130,106.9 170,83.1 210,61 250,86.5 290,105.2 330,91.6 370,69.5 410,50.8 450,76.3 490,87.4 490,180"
+                     fill="#ffca05" fill-opacity="0.2"/>
+            <!-- the line -->
+            <polyline points="50,120.5 90,91.6 130,106.9 170,83.1 210,61 250,86.5 290,105.2 330,91.6 370,69.5 410,50.8 450,76.3 490,87.4"
+                      fill="none" stroke="#ffca05" stroke-width="3"/>
+            <!-- dots -->
+            <g fill="#ffca05">
+              <circle cx="50" cy="120.5" r="4"/>
+              <circle cx="90" cy="91.6" r="4"/>
+              <circle cx="130" cy="106.9" r="4"/>
+              <circle cx="170" cy="83.1" r="4"/>
+              <circle cx="210" cy="61" r="4"/>
+              <circle cx="250" cy="86.5" r="4"/>
+              <circle cx="290" cy="105.2" r="4"/>
+              <circle cx="330" cy="91.6" r="4"/>
+              <circle cx="370" cy="69.5" r="4"/>
+              <circle cx="410" cy="50.8" r="4"/>
+              <circle cx="450" cy="76.3" r="4"/>
+              <circle cx="490" cy="87.4" r="4"/>
+            </g>
+            <!-- months -->
+            <g font-size="10" fill="#08264d" text-anchor="middle">
+              <text x="50" y="199">Jan</text>
+              <text x="90" y="199">Feb</text>
+              <text x="130" y="199">Mar</text>
+              <text x="170" y="199">Apr</text>
+              <text x="210" y="199">May</text>
+              <text x="250" y="199">Jun</text>
+              <text x="290" y="199">Jul</text>
+              <text x="330" y="199">Aug</text>
+              <text x="370" y="199">Sep</text>
+              <text x="410" y="199">Oct</text>
+              <text x="450" y="199">Nov</text>
+              <text x="490" y="199">Dec</text>
+            </g>
+          </svg>
+        </div>
+
+      </section>
+
+      <!-- Support group table (same style as the members table) -->
+      <section class="panel members-panel group-panel" id="groups">
+        <div class="members-heading">
+          <div class="heading-title">
+            <span class="members-symbol">👥</span>
+            <div>
+              <h2>Support Group Management</h2>
+              <p>Manage and view all support groups of Youth on the Rock.</p>
+            </div>
+          </div>
+          <button class="add-button" type="button">⊕ Add Group</button>
+        </div>
+
+        <div class="table-tools support-tools">
+          <label class="search-box"><span>⌕</span><input type="search" placeholder="Search groups..." aria-label="Search groups"></label>
+          <select aria-label="Filter by status">
+            <option value="all">All Status</option><option>Active</option><option>Upcoming</option><option>Inactive</option>
+          </select>
+          <button class="search-button" type="button">Search</button>
+        </div>
+
+        <div class="table-scroll">
+          <table class="member-table">
+            <thead>
+              <tr>
+                <th>Group Name</th>
+                <th>Leader</th>
+                <th>Members</th>
+                <th>Last Activity</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Youth Leaders' Circle</td>
+                <td>Maria Santos</td>
+                <td>120</td>
+                <td>Dec 15, 2024</td>
+                <td><span class="status active">● Active</span></td>
+                <td class="actions"><button class="view-btn">◉ View</button><button class="edit-btn">✎ Edit</button></td>
+              </tr>
+              <tr>
+                <td>Campus Warriors</td>
+                <td>Daniel Reyes</td>
+                <td>95</td>
+                <td>Dec 14, 2024</td>
+                <td><span class="status active">● Active</span></td>
+                <td class="actions"><button class="view-btn">◉ View</button><button class="edit-btn">✎ Edit</button></td>
+              </tr>
+              <tr>
+                <td>Faith Builders Group</td>
+                <td>Anna Cruz</td>
+                <td>78</td>
+                <td>Dec 12, 2024</td>
+                <td><span class="status upcoming">● Upcoming</span></td>
+                <td class="actions"><button class="view-btn">◉ View</button><button class="edit-btn">✎ Edit</button></td>
+              </tr>
+              <tr>
+                <td>Next Gen Disciples</td>
+                <td>James Dela Torre</td>
+                <td>65</td>
+                <td>Dec 10, 2024</td>
+                <td><span class="status active">● Active</span></td>
+                <td class="actions"><button class="view-btn">◉ View</button><button class="edit-btn">✎ Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-bottom">
+          <span>Showing 1 to 4 of 12 groups</span>
+          <div class="pagination">
+            <button disabled aria-label="Previous page">‹</button>
+            <button class="current">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button aria-label="Next page">›</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="dashboard-footer" id="footer">
+    <div class="footer-logo"><img src="IMAGES/Youth_on_the_Rock-removebg.png" alt="Youth on the Rock"><small>© 2026 Youth on the Rock. All rights reserved.</small></div>
+    <div class="footer-column"><h3>Quick Links</h3><a href="Homepage ytr.html">⌂ Home</a><a href="#groups">ⓘ　About</a><a href="#groups">▦　Programs</a><a href="#footer">✉　Contact</a></div>
+    <div class="footer-social"><h3>Follow Us</h3><div><a href="https://www.facebook.com/ytrorg" aria-label="Facebook">f</a><a href="#" aria-label="YouTube">▶</a><a href="https://www.instagram.com/ytrorg" aria-label="Instagram">◎</a><a href="https://www.tiktok.com/@ytrorg" aria-label="TikTok">♪</a></div></div>
+    <p class="footer-slogan">“Changing a Nation<br>by Changing a Generation.”</p>
+  </footer>
+
+</div>
+</body>
+</html>

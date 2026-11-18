@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youth on the Rock</title>
+
+  <!-- Google Fonts (replaces the Figma @font-face lines) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="Homepage style.css">
+  <script src="Homepage.js"></script>
+</head>
+<body>
+  <div class="site" id="site">
+
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <a class="brand" href="#home" aria-label="Youth on the Rock home">
+        <img src="IMages/Youth on the Rock.png" alt="Youth on the Rock">
+      </a>
+
+      <button class="menu-button" id="menuButton" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Primary navigation">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#programs">Programs</a>
+        <a class="login" href="#movement">
+          <img src="IMages/login image.png" alt="">
+          Login
+        </a>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <img src="IMAGES/Night mode.png" alt="">
+      </button>
+    </header>
+
+    <main>
+
+      <!-- ========== HERO ========== -->
+      <section class="hero" id="home">
+        <img class="hero-photo" src="IMAGES/Youth Gathering.png" alt="Youth gathering in an arena">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow hero-eyebrow">YOUTH ON THE ROCK</p>
+          <h1>
+            Changing a Nation<br>
+            by Changing a <span>Generation</span>
+          </h1>
+          <p class="hero-copy">
+            We empower young people and students to become Godly, Patriotic, and Excellent leaders
+            who make a meaningful impact in their communities.
+          </p>
+          <div class="button-row">
+            <a class="button button-yellow" href="#about">Learn More →</a>
+            <a class="button button-outline-light" href="#movement">Get Started</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== ABOUT ========== -->
+      <section class="about section" id="about">
+        <div class="about-copy">
+          <p class="eyebrow">KNOW ABOUT US</p>
+          <h2>Empowering Youth to Become Leaders of Impact</h2>
+          <p>
+            We empower young people and students to become Godly, Patriotic, and Excellent leaders
+            who make a meaningful impact in their communities.
+          </p>
+          <a class="button button-outline-yellow" href="#programs">Learn More →</a>
+        </div>
+
+        <div class="collage" aria-label="Youth on the Rock community photos">
+          <img class="paint paint-one" src="IMAGES/paint 1.png" alt="">
+          <img class="paint paint-two" src="IMAGES/Paint 2.png" alt="">
+          <img class="photo photo-one" src="IMAGES/Picture 2.png" alt="Youth gathering group">
+          <img class="photo photo-two" src="IMAGES/Picture 1.png" alt="Youth conference group">
+          <img class="photo photo-three" src="IMAGES/Picture 3.png" alt="Youth outdoor community">
+        </div>
+      </section>
+
+      
+<!-- ========== PROGRAMS ========== -->
+<section class="programs section" id="programs">
+
+  <div class="programs-intro">
+    <div>
+      <p class="eyebrow">OUR PROGRAMS</p>
+      <h2>Growing Leaders, Building Communities</h2>
+    </div>
+
+    <p>
+      Through organized tracking and mentorship, Youth on the
+      Rock can monitor the progress of members and leaders
+      across different areas and campuses.
+    </p>
+  </div>
+
+  <div class="program-grid">
+
+    <!-- MEMBER MANAGEMENT -->
+    <a href="member management.html" class="program-card">
+      <div class="program-header">
+        <img src="IMAGES/YOUR-MEMBER-ICON-URL.png" alt="Member Management Icon">
+        <div class="program-heading">
+          <h3>Member<br>Management</h3>
+          <div class="card-rule"></div>
+        </div>
+      </div>
+      <p>Keep member information organized, including their area, status, leadership role, and other important details.</p>
+    </a>
+
+    <!-- SUPPORT GROUP TRACKING -->
+    <a href="support-group-tracking (1).html" class="program-card">
+      <div class="program-header">
+        <img src="IMAGES/YOUR-SUPPORT-GROUP-ICON-URL.png" alt="Support Group Icon">
+        <div class="program-heading">
+          <h3>Support Group<br>Tracking</h3>
+          <div class="card-rule"></div>
+        </div>
+      </div>
+      <p>Track weekly support groups, including members, attendance, leaders, and meeting information.</p>
+    </a>
+
+    <!-- MENTORSHIP TRACKING -->
+    <a href="Mentorship tracking.html" class="program-card">
+      <div class="program-header">
+        <img src="IMAGES/YOUR-MENTORSHIP-ICON-URL.png" alt="Mentorship Icon">
+        <div class="program-heading">
+          <h3>Mentorship<br>Tracking</h3>
+          <div class="card-rule"></div>
+        </div>
+      </div>
+      <p>Monitor mentors and mentees while keeping track of mentoring progress and member development.</p>
+    </a>
+
+    <!-- PROGRESS AND REPORTS -->
+    <a href="programs-reports.html" class="program-card">
+      <div class="program-header">
+        <img src="IMAGES/YOUR-REPORTS-ICON-URL.png" alt="Progress and Reports Icon">
+        <div class="program-heading">
+          <h3>Progress &amp;<br>Reports</h3>
+          <div class="card-rule"></div>
+        </div>
+      </div>
+      <p>Generate organized records and reports to make monitoring members, leaders, groups, and mentees easier.</p>
+    </a>
+
+        </div>
+     </section>
+
+
+      <!-- ========== WHY YTR ========== -->
+      <section class="why">
+        <img src="IMAGES/Blurred.png" alt="" class="why-bg">
+        <div class="why-overlay"></div>
+        <div class="why-inner">
+          <div>
+            <h2>WHY YOUTH ON THE ROCK?</h2>
+            <h3>The Next Generation Starts Here</h3>
+            <p>
+              Young people have the potential to create meaningful change. Through leadership,
+              mentorship, and community involvement, YTR encourages them to grow and become
+              responsible leaders.
+            </p>
+          </div>
+          <ul>
+            <li>Leadership development</li>
+            <li>Mentorship and support</li>
+            <li>Community involvement</li>
+            <li>Personal growth</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ========== MOVEMENT ========== -->
+      <section class="movement" id="movement">
+        <div class="movement-photo">
+          <img src="IMAGES/Flag.png" alt="Youth on the Rock gathering with Philippine flags">
+        </div>
+        <div class="movement-copy">
+          <h2>BE PART OF THE MOVEMENT</h2>
+          <h3>
+            <span>Your Journey.</span> <b>Your Growth.</b> <em>Your Impact.</em>
+          </h3>
+          <p>
+            Be part of a generation that leads with purpose, serves its community, and inspires
+            positive change.
+          </p>
+          <div class="button-row centered">
+            <a class="button button-outline-blue" href="#about">Learn More →</a>
+            <a class="button button-yellow" href="#home">Member Login →</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="contact">
+      <div class="footer-brand">
+        <img src="IMAGES/Youth on the rock Footer.png" alt="Youth on the Rock">
+        <p>© 2026 Youth on the Rock. All rights reserved</p>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="contact-block">
+        <h2>Contacts</h2>
+        <div class="contact-grid">
+          <a href="tel:+639553426605">
+            <img src="IMAGES/phone.png" alt=""><span>0955 342 6605</span>
+          </a>
+          <a href="mailto:hello@ytrorg.com">
+            <img src="IMAGES/Mail.png" alt=""><span>hello@ytrorg.com</span>
+          </a>
+          <a href="https://www.facebook.com/ytrorg" target="_blank" rel="noreferrer">
+            <img src="IMAGES/Messenger.png" alt=""><span>Youth on the Rock</span>
+          </a>
+          <a href="https://www.instagram.com/ytrorg" target="_blank" rel="noreferrer">
+            <img src="IMAGES/Ig.png" alt=""><span>ytrorg</span>
+          </a>
+          <a href="https://www.tiktok.com/@ytrorg" target="_blank" rel="noreferrer">
+            <img src="IMAGES/tiktok.png" alt=""><span>ytrorg</span>
+          </a>
+          <a href="https://www.youtube.com/@ytrorg" target="_blank" rel="noreferrer">
+            <img src="IMAGES/Youtube.png" alt=""><span>ytrorg</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
