@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in touch with Youth on the Rock.">
+  <title>Contact | Youth on the Rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;900&family=Love+Light&family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #0057a8;
+      --navy: #002140;
+      --yellow: #f9c900;
+      --page: #f5f7fa;
+      --field: rgba(118, 118, 128, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--navy); background: var(--page); font-family: Poppins, sans-serif; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(100% - 48px, 1276px); margin-inline: auto; }
+
+    .site-header { background: #fff; }
+    .header-inner { min-height: 111px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: block; width: 280px; max-width: 28vw; height: auto; }
+    .main-nav { display: flex; align-items: center; gap: clamp(24px, 3.7vw, 54px); }
+    .main-nav a { color: var(--blue); text-decoration: none; font-size: 24px; }
+    .main-nav a[aria-current="page"] { color: var(--yellow); }
+    .header-actions { display: flex; align-items: center; gap: 18px; }
+    .login { height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 24px; border: 0; border-radius: 99px; color: var(--blue); background: var(--yellow); font-size: 22px; font-weight: 600; }
+    .login svg { width: 22px; height: 25px; fill: currentColor; }
+    .theme-toggle { width: 50px; height: 50px; display: grid; place-items: center; border: 0; border-radius: 50%; background: #383e43; }
+    .theme-toggle img { width: 26px; height: 26px; transform: rotate(-16deg); }
+
+    .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 720px; padding: 72px 0 180px; color: #fff; }
+    .hero::before, .hero::after { position: absolute; z-index: -1; inset: 0; content: ""; }
+    .hero::before { background: linear-gradient(88deg, rgba(26, 9, 94, .34) 30%, rgba(56, 62, 67, .34)), linear-gradient(88deg, rgba(0, 87, 168, .5) 17%, rgba(72, 87, 100, .4)); }
+    .hero::after { top: auto; height: 160px; background: var(--page); clip-path: polygon(0 55%, 100% 0, 100% 100%, 0 100%); }
+    .hero-image { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+    .eyebrow, .hero-title, .hero-copy, .message-link, .contact-label, .contact-heading, .form-heading, .cta-heading, .cta-button { font-family: "League Spartan", sans-serif; }
+    .eyebrow { margin: 0 0 14px; font-size: 32px; font-weight: 600; }
+    .title-stack { position: relative; width: fit-content; }
+    .title-script { display: block; color: rgba(255,255,255,.95); font: 96px/1 "Love Light", cursive; }
+    .hero-title { margin: -40px 0 0 82px; color: var(--yellow); font-size: 64px; line-height: 1; text-shadow: 0 4px 4px rgba(0,0,0,.66); }
+    .hero-copy { max-width: 801px; margin: 34px 0 0; font-size: 32px; line-height: 1.25; }
+    .message-link { display: inline-block; margin-top: 32px; color: var(--yellow); font-size: 30px; text-underline-offset: 6px; }
+
+    .contact-card { position: relative; z-index: 2; display: grid; grid-template-columns: 44.4% 1fr; width: min(100% - 48px, 1079px); margin: -80px auto 0; overflow: hidden; border-radius: 30px; background: var(--page); box-shadow: 12px 13px 24px rgba(0,0,0,.27); }
+    .contact-info { padding: 38px 28px 40px 56px; background: var(--field); }
+    .contact-label { margin: 0; color: var(--yellow); font-size: 24px; font-weight: 600; }
+    .contact-heading { margin: 4px 0 30px; color: var(--navy); font-size: 32px; line-height: 1; text-shadow: 0 4px 5px rgba(0,0,0,.35); }
+    .info-list { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; }
+    .info-item { display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: 16px; }
+    .info-image { width: 90px; height: 84px; object-fit: cover; box-shadow: 1px 4px 9px rgba(0,0,0,.47); }
+    .info-item h3 { margin: 0 0 3px; font-size: 20px; }
+    .info-item p { margin: 0; color: var(--blue); font-size: 17px; overflow-wrap: anywhere; }
+    .social-title { margin: 28px 0 12px; font: 500 24px "League Spartan", sans-serif; }
+    .social-icons { display: flex; gap: 8px; }
+    .social-icons img { width: 56px; height: 54px; object-fit: cover; box-shadow: 1px 4px 9px rgba(0,0,0,.47); }
+
+    .contact-form { padding: 38px 60px 40px; }
+    .form-heading { margin: 0; color: var(--yellow); font-size: 32px; text-shadow: 0 4px 5px rgba(0,0,0,.35); }
+    .form-intro { max-width: 467px; margin: 8px 0 22px; color: rgba(0,0,0,.66); font-size: 14px; }
+    .form-field { margin-top: 15px; }
+    .form-field label { display: block; margin-bottom: 5px; color: var(--blue); font-size: 14px; }
+    .form-field input, .form-field textarea { width: 100%; min-height: 38px; padding: 8px 16px; border: 0; border-radius: 10px; outline: none; color: #1d1f21; background: var(--field); font-size: 14px; }
+    .form-field textarea { min-height: 105px; resize: vertical; }
+    .form-field input:focus, .form-field textarea:focus { box-shadow: 0 0 0 2px var(--blue); }
+    .form-field ::placeholder { color: rgba(29,31,33,.62); }
+    .send-button { display: block; width: 215px; height: 42px; margin: 24px auto 0; border: 0; border-radius: 10px; color: white; background: var(--blue); box-shadow: 0 4px 10px rgba(0,0,0,.55); font: 700 20px "League Spartan", sans-serif; cursor: pointer; }
+
+    .cta { position: relative; isolation: isolate; overflow: hidden; margin-top: 92px; color: #fff; text-align: center; }
+    .cta::after { position: absolute; z-index: -1; inset: 0; content: ""; background: rgba(0,87,168,.55); }
+    .cta-image { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .cta-content { width: min(100% - 48px, 687px); margin: auto; padding: 72px 0 80px; }
+    .cta-heading { margin: 0; font-size: 36px; font-weight: 900; }
+    .cta-subheading { width: 100%; height: auto; margin-top: 8px; }
+    .cta-copy { max-width: 564px; margin: 24px auto 0; font-size: 20px; font-weight: 500; }
+    .cta-button { width: min(100%, 375px); min-height: 60px; margin-top: 34px; border: 3px solid var(--yellow); border-radius: 99px; color: var(--yellow); background: rgba(118,118,128,.12); box-shadow: 0 4px 4px rgba(0,0,0,.25); font-size: 20px; font-weight: 500; cursor: pointer; }
+
+    .site-footer { color: white; background: var(--blue); }
+    .footer-inner { display: grid; grid-template-columns: 1fr auto; gap: 32px; padding: 42px 0; }
+    .footer-logo { width: 420px; max-width: 100%; height: auto; }
+    .copyright { margin: 18px 0 0 48px; font-size: 16px; }
+    .footer-heading { margin: 0; font-size: 36px; font-weight: 600; text-shadow: 0 6px 10px rgba(0,0,0,.25); }
+    .footer-contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px; margin-top: 18px; }
+    .footer-contact { display: flex; align-items: center; gap: 10px; color: var(--yellow); font-size: 16px; white-space: nowrap; }
+    .footer-contact svg, .footer-contact img { width: 24px; height: 24px; flex: 0 0 24px; fill: var(--yellow); }
+
+    @media (max-width: 1050px) {
+      .main-nav { gap: 20px; }
+      .main-nav a { font-size: 18px; }
+      .brand { width: 220px; }
+      .contact-info { padding-left: 32px; }
+      .contact-form { padding-inline: 36px; }
+      .info-item { grid-template-columns: 72px 1fr; gap: 12px; }
+      .info-image { width: 72px; height: 70px; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 32px, 1276px); }
+      .header-inner { min-height: 82px; gap: 10px; }
+      .brand { width: 155px; max-width: 42vw; }
+      .main-nav { display: none; }
+      .header-actions { gap: 8px; }
+      .login { height: 42px; padding-inline: 16px; font-size: 17px; }
+      .login svg { width: 18px; height: 21px; }
+      .theme-toggle { width: 42px; height: 42px; }
+      .theme-toggle img { width: 22px; height: 22px; }
+      .hero { min-height: 620px; padding: 50px 0 145px; }
+      .hero::after { height: 90px; }
+      .eyebrow { font-size: 24px; }
+      .title-script { font-size: 62px; }
+      .hero-title { margin: -26px 0 0 30px; font-size: clamp(42px, 12vw, 58px); }
+      .hero-copy { margin-top: 26px; font-size: clamp(21px, 5.5vw, 27px); }
+      .message-link { margin-top: 26px; font-size: 25px; }
+      .contact-card { grid-template-columns: 1fr; width: calc(100% - 32px); margin-top: -52px; border-radius: 22px; }
+      .contact-info, .contact-form { padding: 28px 22px; }
+      .contact-heading, .form-heading { font-size: 28px; }
+      .info-list { gap: 16px; }
+      .info-item { grid-template-columns: 70px 1fr; gap: 12px; }
+      .info-image { width: 70px; height: 68px; }
+      .info-item h3 { font-size: 18px; }
+      .info-item p { font-size: 16px; }
+      .cta { margin-top: 58px; }
+      .cta-content { padding: 52px 0; }
+      .cta-heading { font-size: 30px; }
+      .cta-copy { font-size: 18px; }
+      .footer-inner { padding: 34px 0; }
+      .copyright { margin-left: 0; font-size: 14px; }
+      .footer-heading { font-size: 32px; }
+      .footer-contacts { grid-template-columns: 1fr; gap: 12px; }
+      .footer-contact { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <img class="brand" src="https://api.builder.io/api/v1/image/assets/TEMP/7acafdb7d20f4821f4a5807d0f68c7b7f79beb52?width=560" alt="Youth on the Rock">
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#contact" aria-current="page">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="login" type="button" aria-label="Login">
+          <svg viewBox="0 0 25 29" aria-hidden="true"><ellipse cx="12.669" cy="6.618" rx="6.618" ry="6.618"/><path d="M24.96 23.508c0 4.569-5.588 4.965-12.48 4.965S0 28.077 0 23.508s5.587-8.272 12.48-8.272 12.48 3.704 12.48 8.272Z"/></svg>
+          Login
+        </button>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <img src="https://api.builder.io/api/v1/image/assets/TEMP/1b7ef096542928bf62b979cf5aa4e2f18b012542?width=52" alt="">
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero" id="contact">
+      <img class="hero-image" src="https://api.builder.io/api/v1/image/assets/TEMP/d4ccec216764ad153348b8ed370b7788b4d3d609?width=2884" alt="">
+      <div class="wrap">
+        <p class="eyebrow">GET IN TOUCH</p>
+        <div class="title-stack">
+          <span class="title-script" aria-hidden="true">Contact Us</span>
+          <h1 class="hero-title">Contact Us</h1>
+        </div>
+        <p class="hero-copy">We'd love to hear from you! Whether you have questions, want to learn more about Youth on the Rock, or need assistance, we're here to help.<br><br>Let's connect and work together toward changing a nation by changing a generation.</p>
+        <a class="message-link" href="#message">Send Us a Message →</a>
+      </div>
+    </section>
+
+    <section class="contact-card" aria-label="Contact information and message form">
+      <div class="contact-info">
+        <p class="contact-label">Let's Connect</p>
+        <h2 class="contact-heading">CONTACT INFORMATION</h2>
+        <ul class="info-list">
+          <li class="info-item">
+            <img class="info-image" src="https://api.builder.io/api/v1/image/assets/TEMP/3c6ebe62c5cbdacbbb16b179fa42f8a2c5d522ad?width=218" alt="">
+            <div><h3>Email Address</h3><p>hello@ytrorg.com</p></div>
+          </li>
+          <li class="info-item">
+            <img class="info-image" src="https://api.builder.io/api/v1/image/assets/TEMP/dff5384a86922166b9cdd7281d33a13fd5bac017?width=218" alt="">
+            <div><h3>Phone Number</h3><p>0955 342 6605</p></div>
+          </li>
+          <li class="info-item">
+            <img class="info-image" src="https://api.builder.io/api/v1/image/assets/TEMP/dd23c72433409ea87b8644d244256e1b93ee7702?width=218" alt="">
+            <div><h3>Location Address</h3><p>3rd Floor, Spark Place, P. Tuazon, Cubao, Quezon City, Philippines</p></div>
+          </li>
+        </ul>
+        <p class="social-title">Follow our social media</p>
+        <div class="social-icons" aria-label="Social media">
+          <img src="https://api.builder.io/api/v1/image/assets/TEMP/db4458c1b0740fb02007b2833d460f823477bb8e?width=128" alt="">
+          <img src="https://api.builder.io/api/v1/image/assets/TEMP/9a19fcfd4c84340eaeaca725eba0222b4f6889e2?width=128" alt="">
+          <img src="https://api.builder.io/api/v1/image/assets/TEMP/5af817da1af10c6e10b246ccbe6cec28dcce3068?width=128" alt="">
+        </div>
+      </div>
+
+      <form class="contact-form" id="message" action="mailto:hello@ytrorg.com" method="post" enctype="text/plain">
+        <h2 class="form-heading">SEND US A MESSAGE</h2>
+        <p class="form-intro">Have a question or want to know more about Youth on the Rock? Fill out the form below and let us know how we can help.</p>
+        <div class="form-field">
+          <label for="name">Name:</label>
+          <input id="name" name="name" type="text" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email Address:</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email address" required>
+        </div>
+        <div class="form-field">
+          <label for="subject">Subject:</label>
+          <input id="subject" name="subject" type="text" placeholder="Select a subject" required>
+        </div>
+        <div class="form-field">
+          <label for="your-message">Your Message:</label>
+          <textarea id="your-message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button class="send-button" type="submit">SEND</button>
+      </form>
+    </section>
+
+    <section class="cta" id="programs">
+      <img class="cta-image" src="https://api.builder.io/api/v1/image/assets/TEMP/72d21cc6361474477da8a37fa71c52a770ee46e7?width=4550" alt="">
+      <div class="cta-content">
+        <h2 class="cta-heading">WE DEVELOP</h2>
+        <img class="cta-subheading" src="https://api.builder.io/api/v1/image/assets/TEMP/06a133a35b3d12ce88b35794cf0e66429d07a300?width=1374" alt="Godly, Patriotic, and Excellent Leaders">
+        <p class="cta-copy">Every Connection Can Inspire Change<br>Together, we can empower young people, develop future leaders, and build stronger communities.</p>
+        <button class="cta-button" type="button">Learn About Our Programs →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="about">
+    <div class="wrap footer-inner">
+      <div>
+        <img class="footer-logo" src="https://api.builder.io/api/v1/image/assets/TEMP/c022d291849d40bc195ef1000a7fcaf12b728695?width=840" alt="Youth on the Rock">
+        <p class="copyright">© 2026 Youth on the Rock. All rights reserved</p>
+      </div>
+      <div>
+        <h2 class="footer-heading">Contacts</h2>
+        <div class="footer-contacts">
+          <div class="footer-contact"><img src="https://api.builder.io/api/v1/image/assets/TEMP/a360cac0267e4a59c79bd1df57f586eecf5b3c9c?width=50" alt=""><span>0955 342 6605</span></div>
+          <div class="footer-contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1C5.9 1 1 5.9 1 12c0 1.9.5 3.7 1.3 5.3l-.9 3.5 3.5-.9A11 11 0 1 0 12 1Zm0 2a9 9 0 1 1-4.5 16.8l-.6-.3-2.4.6.6-2.4-.3-.6A9 9 0 0 1 12 3Z"/></svg><span>hello@ytrorg.com</span></div>
+          <div class="footer-contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 2a8 8 0 1 1-8 8 8 8 0 0 1 8-8Zm0 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Z"/></svg><span>Youth on the Rock</span></div>
+          <div class="footer-contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 2a8 8 0 1 1-8 8 8 8 0 0 1 8-8Zm-2 3v10l8-5Z"/></svg><span>ytrorg</span></div>
+          <div class="footer-contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 2a8 8 0 1 1-8 8 8 8 0 0 1 8-8Z"/></svg><span>ytrorg</span></div>
+          <div class="footer-contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 2a8 8 0 1 1-8 8 8 8 0 0 1 8-8Z"/></svg><span>ytrorg</span></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
