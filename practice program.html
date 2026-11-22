@@ -9,27 +9,125 @@
     </style>
 </head>
 <body>
-<ul>
-    <li>C</li>
-    <li>C++</li>
-    <li>C#</li>
-    <li>Python</li>
+<h3>Programming Fields</h3>
+<ol type="I">
+  <li>Web DEvelopment</li>
+  <ul>
+   <li>Html</li>
+   <li>CSS</li>
+  </ul>
+  <li>Mobile Development</li>
+  <ul>
     <li>Java</li>
-</ul>
+    <li>KOtlin</li>
+  </ul>
+  <li value="5">Game DEvelopment</li>
+  <ul>
+    <li>C</li>
+    <li>C</li>
+  </ul>
+</ol>
 <table>
-<tr >
-  <th colspan="3">Title 1</th>
-</tr>
-<tr>
-  <td>Content 1</td>
-  <td>Content 2</td>
-  <td>Content 3</td>
-</tr>
+<caption>Student Grades</caption>
+<thead>
+  <tr>
+    <th rowspan="2">NAME</th>
+    <th colspan="2">Grades</th>
+  </tr>
+  <tr>
+    <th>INTCOMP</th>
+    <th>WEBTOOLS</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Erac</td>
+    <td>90</td>
+    <td>95</td>
+  </tr>
+  <tr>
+    <td>Rommel</td>
+    <td>88</td>
+    <td>90</td>
+  </tr>
+  <tfoot>
+  <tr>
+    <td>Total Students</td>
+    <td colspan="2">2</td>
+  </tr>
+  </tfoot>
+</tbody>
 </table>
-<caption>LALALAL</caption>
-<textarea rows="5" cols="5">
-This is a sample text
-</textarea>
+<input type="radio" id="male" name="gender" value="M"/>
+<label for="male">Male</label>
+<input type="radio" id="female“ name="gender“ value="F"/>
+<label for="female">Female</label>
+<h2>Create an Account</h2>
+<form action="/signup.php" method="POST">
+<label for="txtUser">Username:</label>
 
-</body> 
+<input type="text" id="txtUser" name="username"
+placeholder="Enter sername" maxlength="15" _ (4)/><br/>
+
+<label for="txtEmail">Email:</label>
+
+<input type="email" id="txtEmail" name="email" /><br/>
+
+<label for="txtPass">Password:</label>
+
+<input type="password" id="txtPass" name="password"
+
+minlength="8" /><br/>
+
+<label for="txtPhone">Mobile No.:</label>
+
+<input type="tel" id="txtPhone" name="phone" /><br/>
+
+<label for="dtBirth">Birthday:</label>
+
+<input type="date" id="dtBirth" name="birthday"
+
+max="2010-12-31" /><br/>
+
+Gender: <input type="radio" id="male" name="gender" value="M" 
+<label for="male">Male</label>
+<input type="radio" id="female" name="gender" value="F" />
+
+<label for="female">Female</label><br/>
+
+<label for="selProgram">Program: </label>
+
+<select id="selProgram" name="program">
+
+<optgroup label="CCIS">
+
+<option value="BSCS">BSCS</option>
+
+<option value="BSIT">BSIT</option>
+
+</optgroup>
+
+</select><br/>
+
+<label for="filePhoto">Profile Photo: </label>
+
+<input type="file" id="filePhoto" name="photo"
+
+accept="image/*" /><br/>
+
+<label for="txtBio">Short Bio:</label>
+
+<textarea Id="txtBio" name="bio" rows="4" cols="48">
+
+</textarea><br/>
+
+<input type="checkbox" id="chkTerms" name="terms" />
+
+<label for="chkTerms">I agree to the Terms and Conditions</label><br/>
+
+<input type="reset" />
+<input type="submit" value="Sign Up" />
+
+</form>
+</body>
 </html>
