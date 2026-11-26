@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programs | Youth on the Rock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Love+Light&family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="programs_animated (2).css" />
+<link rel="stylesheet" href="login-overlay.css">
+<script src="Login Overlay.js" defer></script>
+</head>
+<body>
+ 
+  <header class="header">
+    <a class="brand" href="Homepage ytr.html(2)#home" aria-label="Youth on the Rock home">
+      <img src="IMAGES/Youth on the Rock.png" alt="Youth on the Rock">
+    </a>
+
+    <button class="menu-button" id="menuButton" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Primary navigation">
+      <a href="Homepage ytr.html">Home</a>
+      <a href="About (2).html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="active" href="programss_animated" aria-current="page">Programs</a>
+      <a class="login" href="Homepage ytr.html(2)#movement">
+        <img src="IMages/login image.png" alt="">
+        Login
+      </a>
+    </nav>
+  </header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">OUR PROGRAMS</div>
+      <h1 class="title"><span class="script" aria-hidden="true">Programs</span><span class="bold">Programs</span></h1>
+      <p class="lead">Discover the different initiatives of Youth on the Rock that help build leaders and strengthen communities.</p>
+      <a class="explore" href="#programs">Explore Our Programs →</a>
+    </div>
+    <div class="hero-art">
+      <div class="art">
+        <img class="a2" src="IMAGES/Logo sun-Photoroom.png" alt="" />
+        <img class="a3" src="IMAGES/YTR.Logo-Photoroom.png" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mid">
+  <section class="programs" id="programs">
+    <h2>Our Programs</h2>
+    <p class="sub">Activities designed to build faith, develop skills, and bring young people together.</p>
+    <div class="grid">
+      <a href="https://www.facebook.com/share/p/1Ct8fXa9En/" target="_blank" rel="noreferrer">
+        <article class="card"><img src="IMAGES/Amazing Race.png" alt="" /><div class="card-body"><h3>Amazing Race</h3><p>Teamwork, challenges, and fun!</p></div></article>
+      </a>
+      <a href="https://www.facebook.com/share/p/184yRfmgSp/" target="_blank" rel="noreferrer">
+        <article class="card"><img src="IMAGES/Breather.png" alt="" /><div class="card-body"><h3>Breather</h3><p>A time to pause and recharge.</p></div></article>
+      </a>
+      <a href="https://www.facebook.com/share/p/1CPoEqtasS/" target="_blank" rel="noreferrer">
+        <article class="card"><img src="IMAGES/Lf Leader.png" alt="" /><div class="card-body"><h3>Leaders</h3><p>Lead. Serve. Inspire.</p></div></article>
+      </a>
+      <a href="https://www.facebook.com/share/p/1A48rqrwp7/" target="_blank" rel="noreferrer">
+        <article class="card"><img src="IMAGES/Movers Dance.png" alt="" /><div class="card-body"><h3>Movers Dance Camp</h3><p>Dance, express, and grow.</p></div></article>
+      </a>
+      <a href="https://www.facebook.com/share/p/1L1qCiJgoE/" target="_blank" rel="noreferrer">
+        <article class="card"><img src="IMAGES/Tatak YTR.png" alt="" /><div class="card-body"><h3>Tatak YTR</h3><p>Connect, play, and learn together.</p></div></article>
+      </a>
+      <a href="https://www.facebook.com/share/p/1FL2eYH1fc/" target="_blank" rel="noreferrer">
+        <article class="card"><img src="IMAGES/Leader Shape.png" alt="" /><div class="card-body"><h3>LeaderShape</h3><p>Discover your potential.</p></div></article>
+      </a>
+    </div>
+  </section>
+</div>
+
+<section class="cta">
+  <img class="cta-photo" src="IMAGES/TAO Eyy.png" alt="" />
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <h2>BE PART OF THE MOVEMENT</h2>
+    <h3>Your Journey. <span class="y">Your Growth.</span> <span class="r">Your Impact.</span></h3>
+    <p>Be part of a generation that leads with purpose, serves its community, and inspires positive change.</p>
+    <div class="btns">
+      <a class="btn ghost" href="#">Learn More →</a>
+      <a class="btn solid" href="#home" data-open-login>Member Login →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuButton = document.querySelector(".menu-btn");
+  const navigation = document.querySelector(".nav");
+
+  // Accessible mobile navigation toggle.
+  if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuButton.innerHTML = isOpen ? "&times;" : "&#9776;";
+    });
+
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+        menuButton.innerHTML = "&#9776;";
+      });
+    });
+
+    document.addEventListener("click", event => {
+      if (
+        window.innerWidth <= 900 &&
+        navigation.classList.contains("open") &&
+        !navigation.contains(event.target) &&
+        !menuButton.contains(event.target)
+      ) {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+        menuButton.innerHTML = "&#9776;";
+      }
+    });
+  }
+
+  // Reveal page sections and program cards as they enter the viewport.
+  const revealTargets = document.querySelectorAll(
+    ".hero-copy, .hero-art, .programs h2, .programs .sub, .card, .cta-photo, .cta-inner, .brand, .contacts"
+  );
+
+  revealTargets.forEach((element, index) => {
+    element.classList.add("reveal");
+    if (element.classList.contains("card")) {
+      element.style.setProperty("--reveal-delay", `${(index % 3) * 110}ms`);
+    }
+  });
+
+  document.body.classList.add("motion-ready");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: "0px 0px -45px 0px"
+    });
+
+    revealTargets.forEach(element => observer.observe(element));
+  } else {
+    revealTargets.forEach(element => element.classList.add("is-visible"));
+  }
+});
+</script>
+
+    <footer id="footer-contact">
+      <div class="footer-brand">
+        <img src="IMAGES/Youth on the rock Footer.png" alt="Youth on the Rock">
+        <p>© 2026 Youth on the Rock. All rights reserved</p>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="contact-block">
+        <h2>Contacts</h2>
+        <div class="contact-grid">
+          <a href="tel:+639553426605">
+            <img src="IMAGES/phone.png" alt=""><span>0955 342 6605</span>
+          </a>
+          <a href="mailto:hello@ytrorg.com">
+            <img src="IMAGES/Mail.png" alt=""><span>hello@ytrorg.com</span>
+          </a>
+          <a href="https://www.facebook.com/ytrorg" target="_blank" rel="noreferrer">
+            <img src="IMAGES/Messenger.png" alt=""><span>Youth on the Rock</span>
+          </a>
+          <a href="https://www.instagram.com/ytrorg" target="_blank" rel="noreferrer">
+            <img src="IMAGES/Ig.png" alt=""><span>ytrorg</span>
+          </a>
+          <a href="https://www.tiktok.com/@ytrorg" target="_blank" rel="noreferrer">
+            <img src="IMAGES/tiktok.png" alt=""><span>ytrorg</span>
+          </a>
+          <a href="https://www.youtube.com/@ytrorg" target="_blank" rel="noreferrer">
+            <img src="IMAGES/Youtube.png" alt=""><span>ytrorg</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <!-- ========== LOGIN OVERLAY (hidden until "Login" is clicked) ========== -->
+  <div class="login-overlay" id="loginOverlay" role="dialog" aria-modal="true" aria-label="YTR member login">
+    <button class="login-close" id="loginClose" type="button" aria-label="Close login">&times;</button>
+    <section class="login-card">
+      <div class="welcome-panel">
+        <div class="welcome-content">
+          <h1>Welcome back!</h1>
+          <p class="welcome-subtitle">Log in to your YTR account</p>
+          <span class="yellow-rule" aria-hidden="true"></span>
+          <p class="mission-text">
+            Together, we continue to<br />
+            <strong>Change a Nation by</strong><br />
+            <strong class="highlight">Changing a Generation.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="form-panel">
+        <div class="form-inner">
+          <header class="form-heading">
+            <h2>Login</h2>
+            <p>Enter your account details to continue.</p>
+          </header>
+
+          <form id="loginForm">
+            <label class="input-wrap" for="loginEmail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="m4 7 8 6 8-6"></path></svg>
+              <input id="loginEmail" name="email" type="email" placeholder="Email Address" autocomplete="email" required />
+            </label>
+
+            <label class="input-wrap password-wrap" for="loginPassword">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><path d="M12 14v3"></path></svg>
+              <input id="loginPassword" name="password" type="password" placeholder="Password" autocomplete="current-password" required />
+              <button class="visibility-toggle" type="button" id="togglePassword" aria-label="Show password" title="Show password">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path><circle cx="12" cy="12" r="2.5"></circle><path class="slash" d="m4 3 16 18"></path></svg>
+              </button>
+            </label>
+
+            <div class="form-options">
+              <label class="remember"><input type="checkbox" name="remember" /> <span>Remember Me</span></label>
+              <a href="#forgot-password" class="text-link" id="forgotLink">Forgot Password?</a>
+            </div>
+
+            <button class="login-button" type="submit">Login <span aria-hidden="true">&rarr;</span></button>
+
+            <div class="separator"><span></span><small>or</small><span></span></div>
+
+            <button class="google-button" type="button" id="googleButton">
+              <img src="IMAGES/google-logo.png" alt="Google logo" class="google-logo">
+              <span>Continue with Google</span>
+            </button>
+
+            <p class="signup-prompt">Don't have an account? <a href="#signup" id="signupLink">Sign Up</a></p>
+            <p class="status-message" id="loginStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="login-overlay.js"></script>
+</body>
+</html>
+
+  <!-- Same script the homepage uses -->
+  <script src="Homepage.js"></script>
+  <script src="login-overlay.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youth on the Rock | Log Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Member%20managementr%20style.css">
+<link rel="stylesheet" href="login-overlay.css">
+<style>
+.logout-stage{min-height:calc(100vh - 72px - 105px);display:grid;place-items:center;padding:40px 20px;position:relative;background:url("IMAGES/Youth Gathering.png") center 46%/cover no-repeat}
+.logout-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,34,77,.88),rgba(0,55,108,.7),rgba(0,32,71,.78))}
+.logout-card{position:relative;z-index:1;width:min(440px,100%);background:#fff;border-radius:13px;padding:34px 30px 28px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,.3);animation:pop .2s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+.logout-icon{width:64px;height:64px;border-radius:50%;background:var(--yellow);color:#002653;display:grid;place-items:center;font-size:30px;margin:0 auto 16px}
+.logout-card h1{font-family:"League Spartan",sans-serif;font-size:28px;line-height:1.1;margin:0 0 8px;color:#082b59}
+.logout-card p{font-size:12px;line-height:1.7;color:#45617f;margin:0 0 22px}
+.logout-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{border-radius:22px;padding:11px 22px;font-size:12px;font-weight:700;cursor:pointer;display:inline-block}
+.btn-primary{border:0;background:var(--yellow);color:#092d58}
+.btn-primary:hover{background:#f1b900}
+.btn-light{border:1px solid #cbd9eb;background:#fff;color:#17395f}
+.btn-light:hover{background:#f5f9ff}
+.btn-dark{border:0;background:#002653;color:#fff}
+.btn-dark:hover{background:#075ba8}
+.logout-note{margin-top:20px;padding-top:16px;border-top:1px solid #e8eef7;font-size:10px;color:#6b819a}
+.logout-quote{font-family:"League Spartan",sans-serif;font-style:italic;font-weight:700;font-size:14px;color:#082b59;margin:0 0 20px}
+[hidden]{display:none!important}
+@media(max-width:700px){.logout-stage{min-height:calc(100vh - 140px);padding:24px 14px}.logout-card{padding:28px 20px 22px}}
+</style>
+</head>
+<body>
+<div class="dashboard-shell">
+<header class="topbar">
+  <a class="brand" href="Homepage ytr.html" aria-label="Youth on the Rock home">
+    <img src="IMAGES/Youth_on_the_Rock-removebg.png" alt="Youth on the Rock">
+  </a>
+  <nav class="top-nav" aria-label="Main navigation">
+    <a href="Homepage ytr.html#home">Home</a><a href="aboutindex.html">About</a><a href="programs animated.html">Programs</a><a href="contac.html">Contact</a>
+  </nav>
+  <button class="admin-pill" type="button">♟ <span>Admin</span>⌄</button>
+</header>
+
+<main class="logout-stage">
+  <!-- Step 1: confirm -->
+  <section class="logout-card" id="confirmCard" aria-labelledby="confirmTitle">
+    <div class="logout-icon">⇥</div>
+    <h1 id="confirmTitle">Log out of your account?</h1>
+    <p>You are signed in as <strong>admin@yotr.org</strong>. Any unsaved changes will be lost when you log out.</p>
+    <div class="logout-actions">
+      <button class="btn btn-light" id="stayBtn" type="button">Stay Signed In</button>
+      <button class="btn btn-primary" id="logoutBtn" type="button">Log Out</button>
+    </div>
+    <div class="logout-note">For your security, always log out when using a shared device.</div>
+  </section>
+
+  <!-- Step 2: logged out -->
+  <section class="logout-card" id="doneCard" aria-labelledby="doneTitle" hidden>
+    <div class="logout-icon">✓</div>
+    <h1 id="doneTitle">You've been logged out</h1>
+    <p>Thank you for serving with Youth on the Rock. See you again soon!</p>
+    <p class="logout-quote">“Empowering the youth to become leaders of impact.”</p>
+    <div class="logout-actions">
+      <a class="btn btn-light" href="Homepage ytr.html">Back to Home</a>
+      <a class="btn btn-dark" href="#login" data-open-login>Log In Again</a>
+    </div>
+  </section>
+</main>
+
+<footer class="dashboard-footer" id="footer">
+  <div class="footer-logo"><img src="IMAGES/Youth_on_the_Rock-removebg.png" alt="Youth on the Rock"><small>© 2026 Youth on the Rock. All rights reserved.</small></div>
+  <div class="footer-column"><h3>Quick Links</h3><a href="Homepage ytr.html#home">⌂ Home</a><a href="aboutindex.html">ⓘ About</a><a href="Homepage ytr.html#programs">▦ Programs</a><a href="contact (2).html">✉ Contact</a></div>
+  <div class="footer-social"><h3>Follow Us</h3><div><a href="https://www.facebook.com/ytrorg" aria-label="Facebook">f</a><a href="#" aria-label="YouTube">▶</a><a href="https://www.instagram.com/ytrorg" aria-label="Instagram">◎</a><a href="https://www.tiktok.com/@ytrorg" aria-label="TikTok">♪</a></div></div>
+  <p class="footer-slogan">“Empowering the youth to become<br>leaders of impact.”</p>
+</footer>
+</div>
+
+<!-- Login popup (same markup/ids that "Login Overlay.js" expects) -->
+<div class="login-overlay" id="loginOverlay">
+  <button class="login-close" id="loginClose" type="button" aria-label="Close login">×</button>
+  <section class="login-card" aria-label="YTR member login">
+    <div class="welcome-panel">
+      <div class="welcome-content">
+        <h1>Welcome back!</h1>
+        <p class="welcome-subtitle">Log in to your YTR account</p>
+        <span class="yellow-rule" aria-hidden="true"></span>
+        <p class="mission-text">
+          Together, we continue to<br />
+          <strong>Change a Nation by</strong><br />
+          <strong class="highlight">Changing a Generation.</strong>
+        </p>
+      </div>
+    </div>
+    <div class="form-panel">
+      <div class="form-inner">
+        <header class="form-heading">
+          <h2>Login</h2>
+          <p>Enter your account details to continue.</p>
+        </header>
+        <form id="loginForm">
+          <label class="input-wrap" for="loginEmail">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="m4 7 8 6 8-6"></path></svg>
+            <input id="loginEmail" name="email" type="email" placeholder="Email Address" autocomplete="email" required />
+          </label>
+          <label class="input-wrap password-wrap" for="loginPassword">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><path d="M12 14v3"></path></svg>
+            <input id="loginPassword" name="password" type="password" placeholder="Password" autocomplete="current-password" required />
+            <button class="visibility-toggle" type="button" id="togglePassword" aria-label="Show password" title="Show password">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path><circle cx="12" cy="12" r="2.5"></circle><path class="slash" d="m4 3 16 18"></path></svg>
+            </button>
+          </label>
+          <div class="form-options">
+            <label class="remember"><input type="checkbox" name="remember" /> <span>Remember Me</span></label>
+            <a href="#forgot-password" class="text-link" id="forgotLink">Forgot Password?</a>
+          </div>
+          <button class="login-button" type="submit">Login <span aria-hidden="true">→</span></button>
+          <div class="separator"><span></span><small>or</small><span></span></div>
+          <button class="google-button" type="button" id="googleButton">
+            <img src="IMAGES/google-logo.png" alt="Google logo" class="google-logo">
+            <span>Continue with Google</span>
+          </button>
+          <p class="signup-prompt">Don't have an account? <a href="#signup" id="signupLink">Sign Up</a></p>
+          <p class="status-message" id="loginStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+  <!-- ========== SIGN UP OVERLAY (opens from the "Sign Up" link in the Login popup) ========== -->
+  <div class="login-overlay" id="signupOverlay" role="dialog" aria-modal="true" aria-label="YTR member sign up">
+    <button class="login-close" id="signupClose" type="button" aria-label="Close sign up">&times;</button>
+    <section class="login-card">
+      <div class="welcome-panel">
+        <div class="welcome-content">
+          <h1>Welcome!</h1>
+          <p class="welcome-subtitle">Sign Up your YTR account</p>
+          <span class="yellow-rule" aria-hidden="true"></span>
+          <p class="mission-text">
+            Together, we continue to<br />
+            <strong>Change a Nation by</strong><br />
+            <strong class="highlight">Changing a Generation.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="form-panel">
+        <div class="form-inner">
+          <header class="form-heading">
+            <h2>Sign Up</h2>
+            <p>Enter your account details to access all features.</p>
+          </header>
+
+          <form id="signupForm">
+            <label class="input-wrap" for="signupEmail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="m4 7 8 6 8-6"></path></svg>
+              <input id="signupEmail" name="emailUsername" type="text" placeholder="Email / Username" autocomplete="username" required />
+            </label>
+
+            <label class="input-wrap" for="signupPassword">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><path d="M12 14v3"></path></svg>
+              <input id="signupPassword" name="password" type="password" placeholder="Create Password" autocomplete="new-password" minlength="8" required />
+              <button class="visibility-toggle" type="button" id="toggleSignupPassword" aria-label="Show password" title="Show password">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path><circle cx="12" cy="12" r="2.5"></circle><path class="slash" d="m4 3 16 18"></path></svg>
+              </button>
+            </label>
+
+            <div class="form-options">
+              <label class="remember"><input type="checkbox" name="remember" /> <span>Remember Me</span></label>
+              <a href="#forgot-password" class="text-link" id="signupForgotLink">Forgot Password?</a>
+            </div>
+
+            <button class="login-button" type="submit">Sign Up <span aria-hidden="true">&rarr;</span></button>
+
+            <div class="separator"><span></span><small>or</small><span></span></div>
+
+            <button class="google-button" type="button" id="googleSignupButton">
+              <img src="IMAGES/google-logo.png" alt="" class="google-logo">
+              <span>Continue with Google</span>
+            </button>
+
+            <p class="signup-prompt">Already have an account? <a href="#login" id="backToLogin">Log in</a></p>
+            <p class="status-message" id="signupStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<script src="login-overlay.js"></script>
+<script>
+const confirmCard=document.getElementById('confirmCard');
+const doneCard=document.getElementById('doneCard');
+document.getElementById('logoutBtn').addEventListener('click',()=>{
+  // Clear any saved session data here (e.g. tokens) before showing the confirmation.
+  try{sessionStorage.clear();localStorage.removeItem('yotrSession')}catch(e){}
+  confirmCard.hidden=true;
+  doneCard.hidden=false;
+});
+document.getElementById('stayBtn').addEventListener('click',()=>{
+  if(history.length>1){history.back()}else{window.location.href='settings page.html'}
+});
+</script>
+</body>
+</html>

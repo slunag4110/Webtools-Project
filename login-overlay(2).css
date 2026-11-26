@@ -1,0 +1,173 @@
+/* =========================================================
+   LOGIN OVERLAY (popup)
+   Every rule starts with .login-overlay so it can't change
+   anything else on the homepage or contact page.
+========================================================= */
+
+.login-overlay {
+  --navy: #062748;
+  --yellow: #ffca05;
+  --purple: #16006c;
+  --panel: #f5f7fa;
+  --ink: #09294b;
+  --muted: #536982;
+
+  /* Hidden until the Login button is clicked */
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--ink);
+}
+
+/* JavaScript adds the class "open" to show it */
+.login-overlay.open {
+  display: flex;
+}
+
+.login-overlay *,
+.login-overlay *::before,
+.login-overlay *::after {
+  box-sizing: border-box;
+}
+
+/* Close (X) button */
+.login-close {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  z-index: 1001;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #062748;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+.login-close:hover {
+  background: var(--yellow);
+}
+
+.login-overlay .login-card {
+  display: grid;
+  grid-template-columns: 1.28fr 1fr;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 560px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--panel);
+  box-shadow: 0 18px 50px rgb(0 0 0 / 16%);
+}
+
+.login-overlay .welcome-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 560px;
+  padding: 54px clamp(34px, 6vw, 76px);
+  color: #fff;
+  background-image: url("IMAGES/welcome-bg.png");
+  background-position: center;
+  background-size: cover;
+}
+.login-overlay .welcome-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(0deg, rgb(0 42 78 / 10%), transparent 45%);
+}
+.login-overlay .welcome-content { position: relative; z-index: 1; max-width: 510px; }
+.login-overlay .welcome-content h1 {
+  margin: 0 0 2px;
+  font-size: clamp(36px, 4.3vw, 54px);
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  font-weight: 800;
+}
+.login-overlay .welcome-subtitle { margin: 4px 0 10px; font-size: clamp(16px, 1.7vw, 22px); font-weight: 500; }
+.login-overlay .yellow-rule { display: block; width: 100px; height: 4px; margin: 8px 0 33px; background: var(--yellow); }
+.login-overlay .mission-text { margin: 0; font-size: clamp(18px, 2vw, 23px); line-height: 1.45; font-weight: 500; }
+.login-overlay .mission-text strong { font-weight: 700; }
+.login-overlay .highlight { color: var(--yellow); }
+
+.login-overlay .form-panel { display: flex; justify-content: center; align-items: center; padding: 48px clamp(28px, 4.3vw, 58px); background: var(--panel); }
+.login-overlay .form-inner { width: 100%; max-width: 390px; }
+.login-overlay .form-heading h2 { margin: 0; color: #06294b; font-size: 38px; line-height: 1.25; letter-spacing: -0.7px; font-weight: 800; text-shadow: 1px 2px 2px rgb(0 0 0 / 13%); }
+.login-overlay .form-heading p { margin: 3px 0 24px; color: var(--muted); font-size: 10px; }
+.login-overlay .input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  margin-bottom: 13px;
+  padding: 0 10px;
+  border: 1px solid #91a1b4;
+  border-radius: 3px;
+  background: transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.login-overlay .input-wrap:focus-within { border-color: #164a7b; box-shadow: 0 0 0 3px rgb(22 74 123 / 10%); }
+.login-overlay .input-wrap > svg { width: 22px; height: 22px; flex: 0 0 22px; fill: none; stroke: #52647d; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.login-overlay .input-wrap input { min-width: 0; width: 100%; border: 0; outline: 0; color: var(--ink); background: transparent; font: inherit; font-size: 10px; }
+.login-overlay .input-wrap input::placeholder { color: #536982; opacity: 1; }
+.login-overlay .visibility-toggle { display: grid; place-items: center; width: 25px; height: 30px; flex: 0 0 25px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.login-overlay .visibility-toggle svg { width: 18px; height: 18px; fill: none; stroke: #858b91; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.login-overlay .visibility-toggle .slash { stroke-width: 2.5; }
+.login-overlay .visibility-toggle.is-visible .slash { display: none; }
+.login-overlay .form-options { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 24px; font-size: 10px; }
+.login-overlay .remember { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+.login-overlay .remember input { width: 13px; height: 13px; margin: 0; accent-color: var(--purple); }
+.login-overlay a { color: var(--purple); text-decoration: none; }
+.login-overlay a:hover { text-decoration: underline; }
+.login-overlay .text-link { font-weight: 500; white-space: nowrap; }
+.login-overlay .login-button,
+.login-overlay .google-button { width: 100%; min-height: 43px; border-radius: 13px; font-family: inherit; font-size: 12px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+.login-overlay .login-button { border: 1px solid #e5b900; background: var(--yellow); color: #111; font-weight: 700; box-shadow: 0 2px 4px rgb(0 0 0 / 20%); }
+.login-overlay .login-button span { font-size: 16px; vertical-align: -1px; }
+.login-overlay .login-button:hover,
+.login-overlay .google-button:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgb(0 0 0 / 12%); }
+.login-overlay .separator { display: flex; align-items: center; gap: 10px; margin: 16px 5px 13px; color: #606060; }
+.login-overlay .separator span { height: 1px; flex: 1; background: #a7a7a7; }
+.login-overlay .separator small { font-size: 9px; }
+.login-overlay .google-button { display: flex; align-items: center; justify-content: center; gap: 10px; border: 1.5px solid var(--purple); background: transparent; color: #171044; box-shadow: 0 1px 3px rgb(0 0 0 / 15%); }
+.login-overlay .google-logo { width: 20px; height: 20px; object-fit: contain; }
+.login-overlay .signup-prompt { margin: 17px 0 0; text-align: center; font-size: 9px; color: #132b45; }
+.login-overlay .signup-prompt a { margin-left: 5px; font-weight: 700; }
+.login-overlay .status-message { min-height: 0; margin: 10px 0 0; color: #244c72; font-size: 10px; text-align: center; }
+.login-overlay .status-message:empty { display: none; }
+
+@media (max-width: 760px) {
+  .login-overlay { padding: 70px 16px 20px; }
+  .login-overlay .login-card { grid-template-columns: 1fr; }
+  .login-overlay .welcome-panel { min-height: 320px; padding: 38px 30px; }
+  .login-overlay .welcome-content h1 { font-size: clamp(34px, 8vw, 48px); }
+  .login-overlay .mission-text { font-size: 19px; }
+  .login-overlay .yellow-rule { margin-bottom: 22px; }
+  .login-overlay .form-panel { padding: 36px 28px 40px; }
+}
+@media (max-width: 420px) {
+  .login-overlay .welcome-panel { min-height: 290px; padding: 30px 23px; }
+  .login-overlay .welcome-content h1 { font-size: 34px; }
+  .login-overlay .welcome-subtitle { font-size: 15px; }
+  .login-overlay .mission-text { font-size: 17px; }
+  .login-overlay .form-panel { padding: 30px 22px 34px; }
+  .login-overlay .form-heading h2 { font-size: 34px; }
+  .login-overlay .form-options { font-size: 9px; }
+}
+
+/* Login message colors */
+.login-overlay .status-message.error { color: #c62828; }
+.login-overlay .status-message.success { color: #1b7f3b; }
