@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youth on the Rock | Settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Shared dashboard styles (same file used by Member Management) -->
+<link rel="stylesheet" href="Member%20managementr%20style.css">
+<style>
+/* Settings-only styles. Layout, header, banner, sidebar, panel and footer come from the shared stylesheet. */
+.members-panel{min-height:510px}
+.settings-intro{border-top:1px solid #e8eef7;padding:22px 3px 5px}
+.settings-intro h3{font:700 20px "League Spartan";color:#082b59;margin:0 0 7px}
+.settings-intro p{font-size:12px;color:#45617f;max-width:650px;line-height:1.7;margin:0 0 17px}
+.settings-intro .search-button{padding:0 17px}
+
+/* Settings dialog */
+.backdrop{position:fixed;inset:0;background:rgba(0,18,42,.62);display:flex;align-items:center;justify-content:center;padding:20px;z-index:20}
+.backdrop[hidden]{display:none}
+.settings-dialog{width:min(790px,100%);max-height:min(690px,92vh);background:#fff;border-radius:13px;overflow:hidden;box-shadow:0 15px 45px rgba(0,0,0,.25);display:flex;flex-direction:column;animation:pop .18s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+.dialog-head{display:flex;align-items:flex-start;justify-content:space-between;padding:22px 25px 17px;border-bottom:1px solid #e5edf8}
+.dialog-head h2{font:800 25px "League Spartan",sans-serif;margin:0;color:#082b59}
+.dialog-head p{margin:4px 0 0;color:#23476d;font-size:11px}
+.close{border:0;background:#f0f5fc;color:#335779;border-radius:50%;width:32px;height:32px;font-size:22px;line-height:1;cursor:pointer}
+.dialog-main{display:grid;grid-template-columns:190px 1fr;min-height:410px;overflow:auto}
+.settings-nav{background:#f5f8fd;padding:17px 12px;border-right:1px solid #e4edf8}
+.settings-nav button{width:100%;border:0;background:transparent;text-align:left;padding:11px 12px;border-radius:22px;color:#315372;font-weight:600;font-size:12px;margin:2px 0;cursor:pointer}
+.settings-nav button.active{background:var(--yellow);color:#002653;font-weight:700}
+.settings-nav button:hover:not(.active){background:#eaf2fc}
+.settings-content{padding:22px 26px;overflow:auto}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.section-title{font:700 21px "League Spartan",sans-serif;margin:0 0 4px;color:#082b59}
+.section-desc{font-size:11px;color:#23476d;margin:0 0 19px}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-size:11px;font-weight:600;color:#17395f}
+.field input,.field select{width:100%;height:40px;border:1px solid #cbd9eb;border-radius:8px;padding:0 11px;color:#17395f;background:#fff;outline:none;font-size:11px}
+.field input:disabled{background:#f2f6fb;color:#6b819a}
+.field input:focus,.field select:focus{border-color:#0879e8;box-shadow:0 0 0 3px #0879e81a}
+.full{grid-column:1/-1}
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid #e2eaf5}
+.setting-row:last-child{border-bottom:0}
+.setting-row strong{display:block;font-size:12px}
+.setting-row small{display:block;color:#23476d;font-size:10px;margin-top:3px}
+.switch{position:relative;flex:0 0 40px;width:40px;height:22px}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;inset:0;border-radius:20px;background:#c8d3e1;transition:.2s;cursor:pointer}
+.slider:before{content:"";position:absolute;width:16px;height:16px;left:3px;top:3px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px #0002}
+.switch input:checked+.slider{background:#002653}
+.switch input:checked+.slider:before{transform:translateX(18px)}
+.security-note{background:#f2f7ff;border:1px solid var(--line);border-radius:8px;padding:12px;color:#23476d;font-size:11px;line-height:1.6}
+.dialog-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid #e5edf8;background:#fbfdff}
+.saved{font-size:10px;color:#087a43;min-height:15px;font-weight:600}
+.foot-actions{display:flex;gap:8px}
+.btn{border-radius:22px;padding:9px 17px;font-size:11px;font-weight:700;cursor:pointer}
+.btn-light{border:1px solid #cbd9eb;background:#fff;color:#17395f}
+.btn-primary{border:0;background:var(--yellow);color:#092d58}
+.btn-primary:hover{background:#f1b900}
+
+@media(max-width:700px){
+  .members-panel{min-height:0}
+  .dialog-main{grid-template-columns:1fr}
+  .settings-nav{display:flex;gap:5px;overflow-x:auto;padding:9px;border-right:0;border-bottom:1px solid #e4edf8}
+  .settings-nav button{width:auto;white-space:nowrap;padding:9px 12px;font-size:10px}
+  .settings-content{padding:18px}
+  .field-grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .dialog-head{padding:18px}
+  .dialog-foot{padding:12px 15px}
+  .saved{max-width:110px}
+}
+</style>
+</head>
+<body>
+<div class="dashboard-shell">
+<header class="topbar">
+  <a class="brand" href="#dashboard" aria-label="Youth on the Rock home">
+    <img src="IMAGES/Youth_on_the_Rock-removebg.png" alt="Youth on the Rock">
+  </a>
+  <nav class="top-nav" aria-label="Main navigation">
+    <a href="Homepage ytr.html">Home</a><a href="About.html">About</a><a href="contact.html">Contact</a><a href="programs_animated.html">Programs</a>
+  </nav>
+  <button class="admin-pill" id="adminButton" type="button">♟ <span>Admin</span>⌄</button>
+</header>
+
+<section class="page-banner" id="dashboard">
+  <div class="banner-shade"></div>
+  <div class="banner-copy">
+    <h1>Settings</h1>
+    <p>Manage your account preferences and dashboard experience.</p>
+  </div>
+</section>
+
+<div class="workspace">
+<aside class="sidebar">
+  <div class="admin-profile">
+    <div class="profile-avatar">●</div>
+    <strong>Admin Account</strong>
+    <small>admin@yotr.org</small>
+  </div>
+  <nav class="side-nav" aria-label="Dashboard navigation">
+    <a href="Member management.html"><span>▦</span> Members</a>
+    <a href="support-group-tracking (1).html"><span>♟</span> Support Groups</a>
+    <a href="Mentorship tracking.html"><span>♟</span> Mentorship</a>
+    <a href="programs-reports.html"><span>▥</span> Reports</a>
+    <a class="selected" href="#settingsPanel" id="sidebarSettings"><span>⚙</span> Settings</a>
+    <a href="Logout page.html"><span>⇥</span> Log Out</a>
+  </nav>
+  <p class="sidebar-quote">“Empowering the youth<br>to become leaders of impact.”</p>
+  <div class="yellow-swoosh"></div>
+</aside>
+
+<main class="main-content">
+  <section class="panel members-panel" id="settingsPanel">
+    <div class="members-heading">
+      <div class="heading-title">
+        <span class="members-symbol">⚙</span>
+        <div>
+          <h2>Settings &amp; Preferences</h2>
+          <p>Manage your administrator profile and customize your Youth on the Rock dashboard.</p>
+        </div>
+      </div>
+      <button class="add-button" id="openSettings" type="button">⚙ Open Settings</button>
+    </div>
+    <div class="settings-intro">
+      <h3>Administrator settings</h3>
+      <p>Update your profile information, account preferences, notifications, security options, and dashboard appearance.</p>
+      <button class="search-button" type="button" id="openSettingsSecondary">Manage Settings</button>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer class="dashboard-footer" id="footer">
+  <div class="footer-logo"><img src="IMAGES/Youth_on_the_Rock-removebg.png" alt="Youth on the Rock"><small>© 2026 Youth on the Rock. All rights reserved.</small></div>
+  <div class="footer-column"><h3>Quick Links</h3><a href="#dashboard">⌂ Home</a><a href="#members">ⓘ About</a><a href="#members">▦ Programs</a><a href="#footer">✉ Contact</a></div>
+  <div class="footer-social"><h3>Follow Us</h3><div><a href="https://www.facebook.com/ytrorg" aria-label="Facebook">f</a><a href="#" aria-label="YouTube">▶</a><a href="https://www.instagram.com/ytrorg" aria-label="Instagram">◎</a><a href="https://www.tiktok.com/@ytrorg" aria-label="TikTok">♪</a></div></div>
+  <p class="footer-slogan">“Empowering the youth to become<br>leaders of impact.”</p>
+</footer>
+</div>
+
+<div class="backdrop" id="backdrop" hidden>
+<section class="settings-dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+<header class="dialog-head"><div><h2 id="dialogTitle">Settings</h2><p>Manage your account and application preferences.</p></div><button class="close" id="close" aria-label="Close settings">×</button></header>
+<div class="dialog-main">
+<nav class="settings-nav" aria-label="Settings sections">
+<button class="active" data-tab="profile">♙　Profile</button><button data-tab="account">⚙　Account</button><button data-tab="notifications">♧　Notifications</button><button data-tab="security">♢　Security</button><button data-tab="appearance">☼　Appearance</button>
+</nav>
+<div class="settings-content">
+<section class="tab-panel active" id="profile"><h3 class="section-title">Profile information</h3><p class="section-desc">Edit the information associated with your administrator profile.</p><div class="field-grid"><div class="field"><label for="fullName">Full name</label><input id="fullName" value="Admin Account"></div><div class="field"><label for="displayEmail">Email address</label><input id="displayEmail" type="email" value="admin@yotr.org"></div><div class="field"><label for="phone">Phone number</label><input id="phone" placeholder="Enter phone number"></div><div class="field"><label for="role">Role</label><input id="role" value="Administrator" disabled></div></div></section>
+<section class="tab-panel" id="account"><h3 class="section-title">Account preferences</h3><p class="section-desc">Choose your preferred language and regional settings.</p><div class="field-grid"><div class="field"><label for="language">Language</label><select id="language"><option>English</option><option>Filipino</option></select></div><div class="field"><label for="timezone">Time zone</label><select id="timezone"><option>Asia/Manila (GMT+8)</option><option>UTC</option></select></div><div class="field full"><label for="dateFormat">Date format</label><select id="dateFormat"><option>MM/DD/YYYY</option><option>DD/MM/YYYY</option><option>YYYY-MM-DD</option></select></div></div></section>
+<section class="tab-panel" id="notifications"><h3 class="section-title">Notifications</h3><p class="section-desc">Choose which updates you would like to receive.</p><div class="setting-row"><div><strong>Email notifications</strong><small>Receive important updates by email.</small></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div><div class="setting-row"><div><strong>New member registrations</strong><small>Get notified when a new member is added.</small></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div><div class="setting-row"><div><strong>Program and event reminders</strong><small>Receive reminders about upcoming activities.</small></div><label class="switch"><input type="checkbox"><span class="slider"></span></label></div><div class="setting-row"><div><strong>Mentorship updates</strong><small>Get updates about mentorship activity.</small></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div></section>
+<section class="tab-panel" id="security"><h3 class="section-title">Security</h3><p class="section-desc">Keep your administrator account protected.</p><div class="field"><label for="currentPassword">Current password</label><input id="currentPassword" type="password" placeholder="Enter current password"></div><div class="field"><label for="newPassword">New password</label><input id="newPassword" type="password" placeholder="Enter new password"></div><div class="field"><label for="confirmPassword">Confirm new password</label><input id="confirmPassword" type="password" placeholder="Confirm new password"></div><div class="security-note">For better account security, use a unique password and avoid sharing your administrator login details.</div></section>
+<section class="tab-panel" id="appearance"><h3 class="section-title">Appearance</h3><p class="section-desc">Customize how the dashboard is displayed.</p><div class="setting-row"><div><strong>Compact table view</strong><small>Display dashboard tables with reduced spacing.</small></div><label class="switch"><input type="checkbox"><span class="slider"></span></label></div><div class="setting-row"><div><strong>Show dashboard tips</strong><small>Display helpful hints around the dashboard.</small></div><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div><div class="field" style="margin-top:18px"><label for="accent">Dashboard accent</label><select id="accent"><option>YOTR Blue &amp; Yellow</option><option>Blue</option></select></div></section>
+</div></div>
+<footer class="dialog-foot"><span class="saved" id="savedMessage" aria-live="polite"></span><div class="foot-actions"><button class="btn btn-light" id="cancel" type="button">Cancel</button><button class="btn btn-primary" id="save" type="button">Save changes</button></div></footer>
+</section>
+</div>
+
+<script>
+const backdrop=document.getElementById('backdrop');
+const openDialog=()=>{backdrop.hidden=false;document.getElementById('close').focus()};
+const closeDialog=()=>{backdrop.hidden=true;document.getElementById('savedMessage').textContent=''};
+document.getElementById('openSettings').addEventListener('click',openDialog);
+document.getElementById('openSettingsSecondary').addEventListener('click',openDialog);
+document.getElementById('sidebarSettings').addEventListener('click',e=>{e.preventDefault();openDialog()});
+document.getElementById('close').addEventListener('click',closeDialog);
+document.getElementById('cancel').addEventListener('click',closeDialog);
+backdrop.addEventListener('click',e=>{if(e.target===backdrop)closeDialog()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!backdrop.hidden)closeDialog()});
+document.querySelectorAll('.settings-nav button').forEach(button=>button.addEventListener('click',()=>{
+ document.querySelectorAll('.settings-nav button').forEach(b=>b.classList.toggle('active',b===button));
+ document.querySelectorAll('.tab-panel').forEach(panel=>panel.classList.toggle('active',panel.id===button.dataset.tab));
+ document.getElementById('savedMessage').textContent='';
+}));
+document.getElementById('save').addEventListener('click',()=>{
+ const email=document.getElementById('displayEmail');
+ if(!email.value.trim()||!email.checkValidity()){email.focus();document.getElementById('savedMessage').textContent='Please enter a valid email address.';return}
+ document.getElementById('savedMessage').textContent='✓ Settings saved for this demo.';
+});
+</script>
+</body>
+</html>

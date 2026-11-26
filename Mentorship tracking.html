@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youth on the Rock  Mentorship Tracking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Mentorship traking syle.css">
+  <script src="Mentorship.js" defer></script>
+</head>
+<body>
+<div class="dashboard-shell">
+  <header class="topbar">
+    <a class="brand" href="#dashboard" aria-label="Youth on the Rock">
+      <img src="IMAGES/Youth_on_the_Rock-removebg.png" alt="Youth on the Rock logo">
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="Homepage ytr.html">Home</a><a href="Homepage ytr(2).html">About</a><a href="contact.html">Contact</a><a href="programs_animated.html">Programs</a>
+    </nav>
+    <button class="admin-pill" id="adminButton" type="button">♟ <span>Admin</span>⌄</button>
+  </header>
+
+  <section class="page-banner" id="dashboard">
+    <div class="banner-shade"></div>
+    <div class="banner-copy">
+      <h1>Mentorship <span>Tracking</span></h1>
+      <p>Monitor, manage, and grow our mentorship program.</p>
+    </div>
+  </section>
+
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="admin-profile">
+        <div class="profile-avatar">●</div>
+        <strong>Admin Account</strong>
+        <small>admin@yotr.org</small>
+      </div>
+      <nav class="side-nav" aria-label="Dashboard navigation">
+        <a href="Member management.html"><span>▦</span> Members</a>
+        <a href="support-group-tracking (1).html"><span>♟</span> Support Groups</a>
+        <a class="selected" href="#mentorship"><span>♟</span> Mentorship</a>
+        <a href="programs-reports.html"><span>▥</span> Reports</a>
+        <a href="settings page.html"><span>⚙</span> Settings</a>
+        <a href="Logout page.html"><span>⇥</span> Log Out</a>
+      </nav>
+      <p class="sidebar-quote">“Empowering the youth<br>to become leaders of impact.”</p>
+      <div class="yellow-swoosh"></div>
+    </aside>
+
+    <main class="main-content">
+      <section class="stats-grid" aria-label="Mentorship statistics">
+        <article class="stat-card"><div class="stat-icon">👥</div><div><strong>245</strong><span>Total Mentees</span></div></article>
+        <article class="stat-card"><div class="stat-icon">👤</div><div><strong>98</strong><span>Total Mentors</span></div></article>
+        <article class="stat-card"><div class="stat-icon">▦</div><div><strong>42</strong><span>Active Mentorships</span></div></article>
+        <article class="stat-card"><div class="stat-icon">▥</div><div><strong>92%</strong><span>Completion Rate</span></div></article>
+      </section>
+
+      <section class="analytics-grid" id="overview">
+        <article class="panel overview-panel">
+          <h2><span class="mini-icon">▥</span> Mentorship Overview</h2>
+          <div class="overview-content">
+            <div class="donut" aria-label="245 mentees">
+              <div class="donut-center"><strong>245</strong><span>Mentees</span></div>
+            </div>
+            <ul class="legend">
+              <li><i class="blue-dot"></i><span>Active<br><b>(72% - 176)</b></span></li>
+              <li><i class="yellow-dot"></i><span>Completed<br><b>(18% - 44)</b></span></li>
+              <li><i class="navy-dot"></i><span>Ongoing<br><b>(10% - 25)</b></span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="panel activity-panel">
+          <h2><span class="mini-icon">▦</span> Mentorship Activity</h2>
+          <div class="chart-wrap">
+            <div class="y-labels"><span>200</span><span>150</span><span>100</span><span>50</span><span>0</span></div>
+            <svg class="activity-chart" viewBox="0 0 660 190" role="img" aria-label="Monthly mentorship activity line chart">
+              <g class="grid-lines"><line x1="12" y1="18" x2="650" y2="18"/><line x1="12" y1="55" x2="650" y2="55"/><line x1="12" y1="92" x2="650" y2="92"/><line x1="12" y1="129" x2="650" y2="129"/><line x1="12" y1="166" x2="650" y2="166"/></g>
+              <polyline class="chart-line" points="18,112 75,82 132,96 189,73 246,45 303,83 360,108 417,98 474,71 531,48 588,74 645,83"/>
+              <g class="chart-points">
+                <circle cx="18" cy="112" r="4"/><circle cx="75" cy="82" r="4"/><circle cx="132" cy="96" r="4"/><circle cx="189" cy="73" r="4"/><circle cx="246" cy="45" r="4"/><circle cx="303" cy="83" r="4"/><circle cx="360" cy="108" r="4"/><circle cx="417" cy="98" r="4"/><circle cx="474" cy="71" r="4"/><circle cx="531" cy="48" r="4"/><circle cx="588" cy="74" r="4"/><circle cx="645" cy="83" r="4"/>
+              </g>
+            </svg>
+            <div class="months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel management-panel" id="mentorship">
+        <div class="management-heading">
+          <h2><span class="mini-icon">🤝</span> Mentorship Management</h2>
+          <div class="table-tools">
+            <label class="search-box"><span>⌕</span><input id="mentorSearch" type="search" placeholder="Search mentees or mentors..." aria-label="Search mentees or mentors"></label>
+            <select id="statusFilter" aria-label="Filter by status"><option value="all">All Status</option><option value="Active">Active</option><option value="Ongoing">Ongoing</option><option value="Completed">Completed</option></select>
+            <button class="assign-button" id="assignButton" type="button">＋ Assign Mentorship</button>
+          </div>
+        </div>
+
+        <div class="table-scroll">
+          <table class="mentorship-table">
+            <thead>
+              <tr><th>Mentorship ID</th>
+                <th>Mentee</th>
+                <th>Mentor</th>
+                <th>Program</th>
+                <th>Start Date</th>
+                <th>Status</th>
+                <th>Progress</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="mentorshipRows">
+              <tr data-status="Active">
+                <td>MT-001</td>
+                <td>Juan Dela Cruz</td>
+                <td>Maria Santos</td>
+                <td>Youth Leadership</td>
+                <td>Jan 15, 2025</td>
+                <td><span class="status active">● Active</span>
+                </td><td><div class="progress-cell">
+                <span class="progress-track"><i style="width:80%"></i></span>
+                <small>80%</small>
+                </td><td class="actions"><button class="view-btn" data-action="view">◉ View</button>
+                <button class="edit-btn" data-action="edit">✎ Edit</button>
+              </td>
+              </tr>
+              <tr data-status="Active"><td>MT-002</td><td>Ana Reyes</td><td>Carlos Garcia</td><td>Campus Warriors</td><td>Feb 01, 2025</td><td><span class="status active">● Active</span></td><td><div class="progress-cell"><span class="progress-track"><i style="width:65%"></i></span><small>65%</small></div></td><td class="actions"><button class="view-btn" data-action="view">◉ View</button><button class="edit-btn" data-action="edit">✎ Edit</button></td></tr>
+              <tr data-status="Ongoing"><td>MT-003</td><td>Daniel Reyes</td><td>Bea Fernandez</td><td>Faith Builders</td><td>Feb 10, 2025</td><td><span class="status ongoing">● Ongoing</span></td><td><div class="progress-cell"><span class="progress-track"><i style="width:40%"></i></span><small>40%</small></div></td><td class="actions"><button class="view-btn" data-action="view">◉ View</button><button class="edit-btn" data-action="edit">✎ Edit</button></td></tr>
+              <tr data-status="Completed"><td>MT-004</td><td>Maria Santos</td><td>James de Torre</td><td>Next Gen Disciples</td><td>Mar 05, 2025</td><td><span class="status completed">● Completed</span></td><td><div class="progress-cell"><span class="progress-track"><i style="width:100%"></i></span><small>100%</small></div></td><td class="actions"><button class="view-btn" data-action="view">◉ View</button><button class="edit-btn" data-action="edit">✎ Edit</button></td></tr>
+              <tr data-status="Active"><td>MT-005</td><td>Carlos Garcia</td><td>Anna Cruz</td><td>Campus Warriors</td><td>Mar 15, 2025</td><td><span class="status active">● Active</span></td><td><div class="progress-cell"><span class="progress-track"><i style="width:75%"></i></span><small>75%</small></div></td><td class="actions"><button class="view-btn" data-action="view">◉ View</button><button class="edit-btn" data-action="edit">✎ Edit</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-bottom"><span id="resultCount">Showing 1 to 5 of 25 mentorships</span><div class="pagination"><button disabled aria-label="Previous page">‹</button><button class="current">1</button><button>2</button><button>3</button><button aria-label="Next page">›</button></div></div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="dashboard-footer" id="footer">
+    <div class="footer-logo"><img src="IMAGES/Youth_on_the_Rock-removebg.png" alt="Youth on the Rock"><small>• A 300-man on the Rock Multiple Nations. •</small></div>
+    <div class="footer-column"><h3>Quick Links</h3><a href="#dashboard">⌂Home</a><a href="#overview">ⓘ　About</a><a href="#mentorship">▦　Programs</a><a href="#footer">✉　Contact</a></div>
+    <div class="footer-column"><h3></h3><a href="#mentorship">✦Support Groups</a><a href="#mentorship">♟　Mentorship</a><a href="#overview">▥　Reports</a></div>
+    <div class="footer-social"><h3>Follow Us</h3><div><a href="https://www.facebook.com/ytrorg" aria-label="Facebook">f</a><a href="#" aria-label="YouTube">▶</a><a href="https://www.instagram.com/ytrorg" aria-label="Instagram">◎</a><a href="https://www.tiktok.com/@ytrorg" aria-label="TikTok">♪</a></div></div>
+    <p class="footer-slogan">Changing a Nation<br>by Changing a <b>Generation.</b></p>
+  </footer>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <button class="dialog-close" id="closeDialog" aria-label="Close dialog">×</button>
+    <h2 id="dialogTitle">Mentorship Details</h2>
+    <p id="dialogText">Select a mentorship record to view its details.</p>
+    <button class="assign-button" id="dialogOk" type="button">Close</button>
+  </section>
+</div>
+</body>
+</html>
